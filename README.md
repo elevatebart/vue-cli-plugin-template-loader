@@ -1,2 +1,3 @@
-# vue-cli-plugin-template-loader
-A plugin to run the vue-template-loader from @ktsn in the vue-cli
+# @vue/cli-plugin-template-loader
+
+> vue-template-loader in vue-cli to separate concerns in the vue-cli
