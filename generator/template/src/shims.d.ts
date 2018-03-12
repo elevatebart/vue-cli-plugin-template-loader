@@ -1,7 +1,8 @@
 ---
 extend: '@vue/cli-plugin-typescript/generator/template/src/shims.d.ts'
+replace: !!js/regexp /declare module '\*\.vue' \{[^]*?\}/
 ---
-
+<%# REPLACE %>
 declare module '*.html' {
     import Vue, { ComponentOptions } from 'vue'
     interface WithRender {
@@ -21,3 +22,4 @@ declare module '*.css' {
     const withRender: WithRender
     export default withRender
 }
+<%# END_REPLACE %>
