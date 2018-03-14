@@ -4,7 +4,7 @@ module.exports = (content, classComponent) => {
   let templateExt = 'html'
   if (templateRE.test(content)) {
     const templateObj = templateRE.exec(content)
-    template = templateObj[3] || ''
+    template = templateObj[3].trim() || ''
     templateExt = templateObj[2] || templateExt
   }
 
@@ -13,8 +13,8 @@ module.exports = (content, classComponent) => {
   let styleExt = 'css'
   if (styleRE.test(content)) {
     const styleObj = styleRE.exec(content)
-    style = styleObj[4]
-    styleExt = styleObj[3] || styleExt
+    style = styleObj[4].trim()
+    styleExt = (styleObj[3] || styleExt).trim()
   }
 
   const scriptRE = /<script( lang="([a-z]+)")?>([^]*?)<\/script>/
@@ -25,13 +25,17 @@ module.exports = (content, classComponent) => {
   if (scriptRE.test(content)) {
     const scriptObj = scriptRE.exec(content)
     script = scriptObj[3]
+    scriptExt = (scriptObj[2] || scriptExt).trim()
     if (classComponent) {
-      script = script.replace(/(\r\n|\r|\n)export /, '$1@WithRender$1export ')
+      script = script.replace(/(\r\n|\r|\n)\W*export /, '$1@WithRender$1export ')
     } else {
-      script = script.replace(/(\r\n|\r|\n)export default Vue.extend\(/, '$1export default WithRender(')
+      if(scriptExt === 'ts'){
+        script = script.replace(/(\r\n|\r|\n)\W*export default Vue.extend\(/, '$1export default WithRender(')
+      } else {
+        script = script.replace(/(\r\n|\r|\n)\W*export default {/, '$1export default WithRender({') + ")"
+      }
     }
-    script = additionalScript + script
-    scriptExt = scriptObj[2] || scriptExt
+    script = (additionalScript + script).trim()
   }
 
   return {
