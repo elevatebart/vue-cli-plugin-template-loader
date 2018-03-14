@@ -28,8 +28,8 @@ module.exports = api => {
   // import foo from 'foo'
   const tsFileRE = /\.ts$/
   const tsExcludeRE = /main.ts$/
-  const importRelativeVueRE = /(\r\n|\r|\n)import (\w+) from '\.\/([^]+).vue'(\r\n|\r|\n)/g
-  const importVueRE = /(\r\n|\r|\n)import (\w+) from '([^]+).vue'(\r\n|\r|\n)/g
+  const importRelativeVueRE = /(\r\n|\r|\n)import (\w+) from '\.\/([^]+).vue';?(\r\n|\r|\n)/g
+  const importVueRE = /(\r\n|\r|\n)import (\w+) from '([^]+).vue';?(\r\n|\r|\n)/g
   api.postProcessFiles(files => {
     for (const file in files) {
       if (tsFileRE.test(file) && !tsExcludeRE.test(file)) {
