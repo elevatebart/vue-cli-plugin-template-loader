@@ -11,7 +11,7 @@ test('mocha', async () => {
       plugins: {
         '@vue/cli-plugin-typescript': {},
         '@vue/cli-plugin-unit-mocha': {},
-        '@vue/cli-plugin-template-loader': {}
+        'vue-cli-plugin-template-loader': {}
       }
     },
     cwd
@@ -25,8 +25,8 @@ test('mocha with class-component', async () => {
     {
       plugins: {
         '@vue/cli-plugin-typescript': { classComponent: true },
-        '@vue/cli-plugin-unit-mocha': {}
-        // '@vue/cli-plugin-template-loader': {}
+        '@vue/cli-plugin-unit-mocha': {},
+        'vue-cli-plugin-template-loader': {}
       }
     },
     cwd
@@ -42,7 +42,7 @@ xtest('jest', async () => {
       plugins: {
         '@vue/cli-plugin-typescript': {},
         '@vue/cli-plugin-unit-jest': {},
-        '@vue/cli-plugin-template-loader': {}
+        'vue-cli-plugin-template-loader': {}
       }
     },
     cwd

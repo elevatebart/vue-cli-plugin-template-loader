@@ -1,11 +1,12 @@
 {
-  "name": "@vue/cli-plugin-template-loader",
-  "version": "0.2.0",
+  "name": "vue-cli-plugin-template-loader",
+  "version": "0.3.0",
   "description": "vue-template-loader plugin for vue-cli",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elevatebart/vue-cli-plugin-template-loader.git"
+    "url":
+      "git+https://github.com/elevatebart/vue-cli-plugin-template-loader.git"
   },
   "keywords": [
     "vue",
@@ -18,7 +19,8 @@
   "author": "Bart Ledoux",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/elevatebart/vue-cli-plugin-template-loader/issues"
+    "url":
+      "https://github.com/elevatebart/vue-cli-plugin-template-loader/issues"
   },
   "publishConfig": {
     "access": "public"
