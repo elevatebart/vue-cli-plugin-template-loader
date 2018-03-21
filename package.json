@@ -1,47 +1,65 @@
 {
-  "name": "vue-cli-template-loader-plugin",
-  "version": "0.0.1",
-  "description": "vue-template-loader plugin for vue-cli",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vuejs/vue-cli.git"
-  },
+  "private": true,
   "workspaces": [
-    "packages/vue-cli-plugin-template-loader",
-    "packages/test/*"
+    "packages/@vue/*",
+    "packages/test/*",
+    "packages/vue-cli-version-marker"
   ],
   "scripts": {
-    "test": "jest --runInBand"
+    "test": "node scripts/test.js",
+    "pretest": "yarn clean",
+    "lint": "eslint --fix packages/**/*.js packages/**/bin/*",
+    "clean": "rimraf packages/test/*",
+    "sync": "node scripts/syncDeps.js",
+    "boot": "node scripts/bootstrap.js",
+    "release": "yarn clean && node scripts/release.js"
   },
-  "keywords": [
-    "vue",
-    "cli",
-    "template",
-    "loader",
-    "separation of concerns",
-    "sfc"
-  ],
-  "author": "Bart Ledoux",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vuejs/vue-cli/issues"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "vue-template-loader": "^0.3.0"
-  },
-  "devDependencies": {
-    "babel-loader": "^7.1.4",
-    "jest": "^22.4.2",
-    "lerna": "^2.9.0"
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommitMsg.js"
   },
   "jest": {
     "testEnvironment": "node",
     "setupFiles": [
-      "<rootDir>/testSetup.js"
+      "<rootDir>/scripts/testSetup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/template/",
+      "/packages/test/",
+      "/temp/",
+      "/scripts/",
+      ".*.helper.js"
     ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "packages/**/bin/*": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@vue/cli": "^3.0.0-beta.6",
+    "@vue/cli-plugin-typescript": "^3.0.0-beta.6",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-beta.6",
+    "@vue/cli-plugin-unit-mocha": "^3.0.0-beta.6",
+    "@vue/cli-test-utils": "^3.0.0-beta.6",
+    "babel-core": "^7.0.0-0",
+    "debug": "^3.1.0",
+    "eslint": "^4.16.0",
+    "eslint-plugin-vue-libs": "^2.1.0",
+    "globby": "^8.0.1",
+    "http-server": "^0.11.1",
+    "jest": "^22.1.4",
+    "lerna": "^2.8.0",
+    "lint-staged": "^6.0.1",
+    "memfs": "^2.6.0",
+    "puppeteer": "^1.0.0",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
+    "yorkie": "^1.0.2"
   }
 }
