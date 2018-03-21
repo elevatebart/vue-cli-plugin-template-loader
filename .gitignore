@@ -35,7 +35,7 @@ bower_components
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 packages/test/*
-!packages/test/.gitkeep
+!.gitkeep
 
 # Dependency directories
 node_modules/
