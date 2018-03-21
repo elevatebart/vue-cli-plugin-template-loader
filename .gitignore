@@ -18,7 +18,7 @@ lib-cov
 coverage
 
 # jest test outputs
-__tests__/packages/test
+packages/test/*
 
 # nyc test coverage
 .nyc_output
@@ -34,8 +34,6 @@ bower_components
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
-packages/test/*
-!.gitkeep
 
 # Dependency directories
 node_modules/
@@ -62,3 +60,5 @@ typings/
 # dotenv environment variables file
 .env
 
+# Make gitkeep effective 
+!.gitkeep
