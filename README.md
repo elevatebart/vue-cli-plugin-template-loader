@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/elevatebart/vue-cli-plugin-template-loader.svg?branch=master)](https://travis-ci.org/elevatebart/vue-cli-plugin-template-loader)
+
 # vue-cli-plugin-template-loader
 A plugin to run the vue-template-loader from @ktsn in the vue-cli
 
