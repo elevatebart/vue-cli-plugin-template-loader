@@ -144,7 +144,7 @@ export default class test extend Vue {
 }`)
     })
 
-    it.only('should render scripts with the @WithRender if classComponent with extra component', () => {
+    it('should render scripts with the @WithRender if classComponent with extra component', () => {
       const template = `<template>
     <div>this is a template</div>
 </template>

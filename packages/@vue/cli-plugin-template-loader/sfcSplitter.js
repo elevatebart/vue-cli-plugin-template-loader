@@ -32,20 +32,20 @@ module.exports = (content, classComponent) => {
     scriptExt = (scriptObj[2] || scriptExt).trim()
     if (classComponent) {
       script = script.replace(
-        /(\r\n|\r|\n)[ ,\t]*export /,
-        '$1@WithRender$1export '
+        /(\r\n|\r|\n)([ \t]*)export /,
+        '$1$2@WithRender$1export '
       )
     } else {
       if (scriptExt === 'ts') {
         script = script.replace(
-          /(\r\n|\r|\n)\W*export default Vue.extend\(/,
-          '$1export default WithRender('
+          /(\r\n|\r|\n)([ \t]*)export default Vue.extend\(/,
+          '$1$2export default WithRender('
         )
       } else {
         script =
           script.replace(
-            /(\r\n|\r|\n)\W*export default {/,
-            '$1export default WithRender({'
+            /(\r\n|\r|\n)([ \t]*)export default {/,
+            '$1$2export default WithRender({'
           ) + ')'
       }
     }
