@@ -2,7 +2,7 @@ const extractParts = require('../sfcSplitter')
 
 module.exports = api => {
   const typescript = api.hasPlugin('typescript')
-  const classComponent = typescript && api.rootOptions.classComponent
+  const classComponent = typescript && api.rootOptions.plugins['@vue/cli-plugin-typescript'].classComponent
 
   // transform vue files into a folder with the same name containing
   // index.ts
@@ -32,8 +32,11 @@ module.exports = api => {
   const importVueRE = /(\r\n|\r|\n)import (\w+) from '([^]+).vue';?(\r\n|\r|\n)/g
   api.postProcessFiles(files => {
     for (const file in files) {
-      if (tsFileRE.test(file) && !tsExcludeRE.test(file)) {
-        let content = files[file].replace(importRelativeVueRE, '$1import $2 from \'../$3\'$4')
+      if (tsFileRE.test(file)) {
+        let content = files[file]
+        if(!tsExcludeRE.test(file)){
+          content = content.replace(importRelativeVueRE, '$1import $2 from \'../$3\'$4')
+        }
         content = content.replace(importVueRE, '$1import $2 from \'$3\'$4')
         files[file] = content
       }
@@ -46,6 +49,7 @@ module.exports = api => {
   api.render('./template', {
     isTest: process.env.VUE_CLI_TEST || process.env.VUE_CLI_DEBUG,
     hasMocha,
-    hasJest
+    hasJest,
+    classComponent
   })
 }

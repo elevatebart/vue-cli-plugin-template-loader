@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "<%- options.useTsWithBabel ? 'es2015' : 'es5' %>",
+    "target": "es5",
     "module": "es2015",
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
-    <%_ if (options.classComponent) { _%>
+    <%_ if (classComponent) { _%>
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     <%_ } _%>

@@ -7,6 +7,10 @@
     "type": "git",
     "url": "git+https://github.com/vuejs/vue-cli.git"
   },
+  "workspaces": [
+    "packages/vue-cli-plugin-template-loader",
+    "packages/test/*"
+  ],
   "scripts": {
     "test": "jest --runInBand"
   },
@@ -39,10 +43,14 @@
     "@vue/cli-service": "^3.0.0-beta.6",
     "@vue/cli-test-utils": "^3.0.0-beta.6",
     "@vue/test-utils": "^1.0.0-beta.12",
+    "babel-loader": "^7.1.4",
     "chai": "^4.1.2",
     "jest": "^22.4.2",
+    "lerna": "^2.9.0",
     "mocha": "^5.0.4",
-    "vue": "^2.5.15"
+    "style-loader": "^0.20.3",
+    "vue": "^2.5.15",
+    "vue-property-decorator": "^6.0.0"
   },
   "jest": {
     "testEnvironment": "node",
