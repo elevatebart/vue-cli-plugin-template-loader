@@ -4,7 +4,7 @@ const create = require('@vue/cli-test-utils/createTestProject')
 const path = require('path')
 const cwd = path.resolve(__dirname, '../../../test')
 
-test.only('mocha', async () => {
+test('mocha', async () => {
   const project = await create(
     'ts-unit-mocha',
     {
