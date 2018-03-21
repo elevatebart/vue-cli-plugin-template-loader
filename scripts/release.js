@@ -13,18 +13,20 @@ const release = async () => {
 
   const bumps = ['patch', 'minor', 'major', 'prerelease']
   const versions = {}
-  bumps.forEach(b => { versions[b] = semver.inc(curVersion, b) })
-  const bumpChoices = bumps.map(b => ({ name: `${b} (${versions[b]})`, value: b }))
+  bumps.forEach(b => {
+    versions[b] = semver.inc(curVersion, b)
+  })
+  const bumpChoices = bumps.map(b => ({
+    name: `${b} (${versions[b]})`,
+    value: b
+  }))
 
   const { bump, customVersion } = await inquirer.prompt([
     {
       name: 'bump',
       message: 'Select release type:',
       type: 'list',
-      choices: [
-        ...bumpChoices,
-        { name: 'custom', value: 'custom' }
-      ]
+      choices: [...bumpChoices, { name: 'custom', value: 'custom' }]
     },
     {
       name: 'customVersion',
@@ -36,11 +38,13 @@ const release = async () => {
 
   const version = customVersion || versions[bump]
 
-  const { yes } = await inquirer.prompt([{
-    name: 'yes',
-    message: `Confirm releasing ${version}?`,
-    type: 'confirm'
-  }])
+  const { yes } = await inquirer.prompt([
+    {
+      name: 'yes',
+      message: `Confirm releasing ${version}?`,
+      type: 'confirm'
+    }
+  ])
 
   if (yes) {
     await syncDeps({
@@ -50,14 +54,14 @@ const release = async () => {
     })
     delete process.env.PREFIX
     await execa('git', ['add', '-A'], { stdio: 'inherit' })
-    await execa('git', ['commit', '-m', 'chore: pre release sync'], { stdio: 'inherit' })
+    // await execa('git', ['commit', '-m', 'chore: pre release sync'], { stdio: 'inherit' })
   }
 
-  await execa(require.resolve('lerna/bin/lerna'), [
-    'publish',
-    '--repo-version',
-    version
-  ], { stdio: 'inherit' })
+  await execa(
+    require.resolve('lerna/bin/lerna'),
+    ['publish', '--repo-version', version],
+    { stdio: 'inherit' }
+  )
 
   const fileStream = require('fs').createWriteStream(`CHANGELOG.md`)
   cc({
@@ -69,10 +73,14 @@ const release = async () => {
         return pkg
       }
     }
-  }).pipe(fileStream).on('close', async () => {
-    await execa('git', ['add', '-A'], { stdio: 'inherit' })
-    await execa('git', ['commit', '-m', `chore: ${version} changelog`], { stdio: 'inherit' })
   })
+    .pipe(fileStream)
+    .on('close', async () => {
+      await execa('git', ['add', '-A'], { stdio: 'inherit' })
+      await execa('git', ['commit', '-m', `chore: ${version} changelog`], {
+        stdio: 'inherit'
+      })
+    })
 }
 
 release().catch(err => {
