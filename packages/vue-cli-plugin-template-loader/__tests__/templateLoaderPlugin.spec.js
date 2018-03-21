@@ -8,9 +8,9 @@ test('mocha no sfc', async () => {
     plugins: {
       '@vue/cli-plugin-typescript': {},
       '@vue/cli-plugin-unit-mocha': {},
-      [path.resolve('.')]: {}
+      'vue-cli-plugin-template-loader': {}
     }
-  }, path.resolve(__dirname, './test/'))
+  })
   await project.run(`vue-cli-service test`)
 })
 
@@ -19,8 +19,8 @@ test('jest no sfc', async () => {
     plugins: {
       '@vue/cli-plugin-typescript': {},
       '@vue/cli-plugin-unit-jest': {},
-      [path.resolve('.')]: {}
+      'vue-cli-plugin-template-loader': {}
     }
-  }, path.resolve(__dirname, './test'))
+  })
   await project.run(`vue-cli-service test`)
 })
