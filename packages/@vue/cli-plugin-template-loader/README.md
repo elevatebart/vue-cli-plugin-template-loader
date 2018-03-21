@@ -1,5 +1,20 @@
 # vue-cli-plugin-template-loader
 
-[vue-template-loader]() in vue-cli to separate concerns in the vue-cli
+A plugin for @vue/cli to use [vue-template-loader](https://github.com/ktsn/vue-template-loader) in vue-cli to separate concerns in the vue-cli
 
-this way type safety is kept accross files and 
+## With this plugin
+
+1.  Type safety is kept accross files
+2.  When writing tests, autocompletion with most editors work
+3.  Intellisense and documentation in typescript is kept
+4.  Shims for .vue files are a thing of the past
+
+## To use this plugin
+
+```bash
+npm install --global @vue/cli
+vue create my-vue-app
+cd my-vue-app
+npm install vue-cli-plugin-template-loader
+vue invoke vue-cli-plugin-template-loader
+```

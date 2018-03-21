@@ -5,10 +5,8 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vue-cli.git"
-  },
-  "scripts": {
-    "test": "jest --runInBand"
+    "url":
+      "git+https://github.com/elevatebart/vue-cli-plugin-template-loader.git"
   },
   "keywords": [
     "vue",
@@ -21,16 +19,14 @@
   "author": "Bart Ledoux",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vuejs/vue-cli/issues"
+    "url":
+      "https://github.com/elevatebart/vue-cli-plugin-template-loader/issues"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "vue-template-loader": "^0.3.0",
-    "vue-property-decorator": "^6.0.0"
-  },
-  "devDependencies": {
-    "@vue/cli": "^3.0.0-beta.6"
+    "@vue/cli": "^3.0.0-beta.6",
+    "vue-template-loader": "^0.3.0"
   }
 }

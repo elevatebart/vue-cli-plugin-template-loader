@@ -18,7 +18,11 @@ module.exports = (content, classComponent) => {
   }
 
   const scriptRE = /<script( lang="([a-z]+)")?>([^]*?)<\/script>/
-  const templateString = template.length ? './template.' + templateExt + (style.length ? '?style=./style.' + styleExt: '') : ''
+  const templateString = template.length
+    ? './template.' +
+      templateExt +
+      (style.length ? '?style=./style.' + styleExt : '')
+    : ''
   const additionalScript = `import WithRender from '${templateString}'\n`
   let script = ''
   let scriptExt = 'js'
@@ -27,12 +31,22 @@ module.exports = (content, classComponent) => {
     script = scriptObj[3]
     scriptExt = (scriptObj[2] || scriptExt).trim()
     if (classComponent) {
-      script = script.replace(/(\r\n|\r|\n)\W*export /, '$1@WithRender$1export ')
+      script = script.replace(
+        /(\r\n|\r|\n)[ ,\t]*export /,
+        '$1@WithRender$1export '
+      )
     } else {
-      if(scriptExt === 'ts'){
-        script = script.replace(/(\r\n|\r|\n)\W*export default Vue.extend\(/, '$1export default WithRender(')
+      if (scriptExt === 'ts') {
+        script = script.replace(
+          /(\r\n|\r|\n)\W*export default Vue.extend\(/,
+          '$1export default WithRender('
+        )
       } else {
-        script = script.replace(/(\r\n|\r|\n)\W*export default {/, '$1export default WithRender({') + ")"
+        script =
+          script.replace(
+            /(\r\n|\r|\n)\W*export default {/,
+            '$1export default WithRender({'
+          ) + ')'
       }
     }
     script = (additionalScript + script).trim()
