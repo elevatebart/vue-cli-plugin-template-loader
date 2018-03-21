@@ -8,7 +8,7 @@
     "url":
       "git+https://github.com/elevatebart/vue-cli-plugin-template-loader.git"
   },
-  "homepage": "https://github.com/elevatebart/vue-cli-plugin-template-loader/packages/src/vue-cli-plugin-template-loader#readme",
+  "homepage": "https://github.com/elevatebart/vue-cli-plugin-template-loader/tree/master/packages/src/vue-cli-plugin-template-loader",
   "keywords": [
     "vue",
     "cli",
