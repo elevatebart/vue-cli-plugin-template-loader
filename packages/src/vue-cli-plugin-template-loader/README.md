@@ -18,3 +18,5 @@ cd my-vue-app
 npm install vue-cli-plugin-template-loader
 vue invoke vue-cli-plugin-template-loader
 ```
+
+I will be at vueconf us please come and say hello !
