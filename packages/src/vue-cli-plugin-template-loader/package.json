@@ -5,8 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url":
-      "git+https://github.com/elevatebart/vue-cli-plugin-template-loader.git"
+    "url": "git+https://github.com/elevatebart/vue-cli-plugin-template-loader.git"
   },
   "homepage": "https://github.com/elevatebart/vue-cli-plugin-template-loader/tree/master/packages/src/vue-cli-plugin-template-loader",
   "keywords": [
@@ -20,8 +19,7 @@
   "author": "Bart Ledoux",
   "license": "MIT",
   "bugs": {
-    "url":
-      "https://github.com/elevatebart/vue-cli-plugin-template-loader/issues"
+    "url": "https://github.com/elevatebart/vue-cli-plugin-template-loader/issues"
   },
   "publishConfig": {
     "access": "public"
