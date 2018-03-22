@@ -20,7 +20,7 @@ module.exports = api => {
         const parts = extractParts(files[file], classComponent)
         const componentPath = file.replace(vueRE, '')
         files[componentPath + '/index.' + parts.scriptExt] = parts.script
-        files[componentPath + '/template.' + parts.templateExt] = parts.template
+        files[componentPath + '/template.' + parts.templateExt] = parts.template.replace(/'\.\/assets\//, "'../assets/")
         files[componentPath + '/style.' + parts.styleExt] = parts.style
         delete files[file]
       }
@@ -40,10 +40,7 @@ module.exports = api => {
       if (tsFileRE.test(file)) {
         let content = files[file]
         if (!tsExcludeRE.test(file)) {
-          content = content.replace(
-            importRelativeVueRE,
-            "$1import $2 from '../$3'$4"
-          )
+          content = content.replace(importRelativeVueRE, "$1import $2 from '../$3'$4")
         }
         content = content.replace(importVueRE, "$1import $2 from '$3'$4")
         files[file] = content
