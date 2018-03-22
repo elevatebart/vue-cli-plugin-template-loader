@@ -1,23 +1,26 @@
-const extractParts = require('../sfcSplitter')
+const extractParts = require('../lib/sfcSplitter')
 
 module.exports = api => {
-  const typescript = api.hasPlugin('typescript')
-  const classComponent =
-    typescript &&
-    api.rootOptions.plugins['@vue/cli-plugin-typescript'].classComponent
-
-  // transform vue files into a folder with the same name containing
+  // transform .vue files into a folder with the same name containing
   // index.ts
   // style.css
   // template.html
   const vueRE = /\.vue$/
   api.postProcessFiles(files => {
+    let classComponent
+    if (files['tsconfig.json']) {
+      const tsconfig = JSON.parse(files['tsconfig.json'])
+      // if it has experimentalDecorators it probably has classComponent as well
+      classComponent = tsconfig.compilerOptions.experimentalDecorators
+      delete tsconfig.include
+      files['tsconfig.json'] = JSON.stringify(tsconfig)
+    }
     for (const file in files) {
       if (vueRE.test(file)) {
         const parts = extractParts(files[file], classComponent)
         const componentPath = file.replace(vueRE, '')
         files[componentPath + '/index.' + parts.scriptExt] = parts.script
-        files[componentPath + '/template.html'] = parts.template
+        files[componentPath + '/template.' + parts.templateExt] = parts.template
         files[componentPath + '/style.' + parts.styleExt] = parts.style
         delete files[file]
       }
@@ -48,13 +51,5 @@ module.exports = api => {
     }
   })
 
-  const hasJest = api.hasPlugin('unit-jest')
-  const hasMocha = api.hasPlugin('unit-mocha')
-
-  api.render('./template', {
-    isTest: process.env.VUE_CLI_TEST || process.env.VUE_CLI_DEBUG,
-    hasMocha,
-    hasJest,
-    classComponent
-  })
+  api.render('./template')
 }
