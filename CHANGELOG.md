@@ -1,5 +1,26 @@
-<a name="1.0.0"></a>
-# [1.0.0](https://github.com/elevatebart/vue-cli-plugin-template-loader/compare/v0.1.0...v1.0.0) (2018-03-21)
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/elevatebart/vue-cli-plugin-template-loader/compare/v0.3.0...v0.3.1) (2018-03-22)
+
+
+
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/elevatebart/vue-cli-plugin-template-loader/compare/v0.2.0...v0.3.0) (2018-03-22)
+
+
+### Bug Fixes
+
+* **package:** name of package to publish ([da04b88](https://github.com/elevatebart/vue-cli-plugin-template-loader/commit/da04b88))
+* **test:** Add some tests and update prettierrc with 120 ([803e892](https://github.com/elevatebart/vue-cli-plugin-template-loader/commit/803e892))
+
+
+
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/elevatebart/vue-cli-plugin-template-loader/compare/v0.1.0...v0.2.0) (2018-03-21)
+
+
+### Bug Fixes
+
+* **build:** build release stuff ([976a11d](https://github.com/elevatebart/vue-cli-plugin-template-loader/commit/976a11d))
 
 
 
