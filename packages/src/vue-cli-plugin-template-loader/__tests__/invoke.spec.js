@@ -21,9 +21,10 @@ async function createAndInstall (name, options) {
   return project
 }
 
-test('invoke', async () => {
+xtest('invoke check tsconfig', async () => {
   const project = await createAndInstall(`invoke`, {})
   await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
+  expect(JSON.parse(await project.read('tsconfig.json')).include).toBeUndefined()
 })
 
 test('invoke with classComponent', async () => {
