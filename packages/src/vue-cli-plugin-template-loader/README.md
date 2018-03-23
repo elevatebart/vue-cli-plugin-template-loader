@@ -15,8 +15,5 @@ A plugin for @vue/cli to use [vue-template-loader](https://github.com/ktsn/vue-t
 npm install --global @vue/cli
 vue create my-vue-app
 cd my-vue-app
-npm install vue-cli-plugin-template-loader
-vue invoke vue-cli-plugin-template-loader
+vue add vue-cli-plugin-template-loader
 ```
-
-I will be at vueconf us please come and say hello !
