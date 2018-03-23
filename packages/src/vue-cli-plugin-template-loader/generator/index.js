@@ -13,24 +13,27 @@ module.exports = api => {
       // if it has experimentalDecorators it probably has classComponent as well
       classComponent = tsconfig.compilerOptions.experimentalDecorators
       delete tsconfig.include
-      files['tsconfig.json'] = JSON.stringify(tsconfig)
+      files['tsconfig.json'] = JSON.stringify(tsconfig, null, 2)
     }
     for (const file in files) {
       if (vueRE.test(file)) {
         const parts = extractParts(files[file], classComponent)
         const componentPath = file.replace(vueRE, '')
         files[componentPath + '/index.' + parts.scriptExt] = parts.script
-        files[componentPath + '/template.' + parts.templateExt] = parts.template.replace(/'\.\/assets\//, "'../assets/")
         files[componentPath + '/style.' + parts.styleExt] = parts.style
+        // assets in html templates will need to be rerouted.
+        // Indeed, we change their relative path
+        const template = parts.template.replace(/'\.\/assets\//, "'../assets/")
+        files[componentPath + '/template.' + parts.templateExt] = template
         delete files[file]
       }
     }
   })
 
   // fix unit tests import paterns from
-  // import foo from 'foo.vue'
+  // import foo from 'path/foo.vue'
   // into
-  // import foo from 'foo'
+  // import foo from 'path/foo'
   const tsFileRE = /\.ts$/
   const tsExcludeRE = /main.ts$/
   const importRelativeVueRE = /(\r\n|\r|\n)import (\w+) from '\.\/([^]+).vue';?(\r\n|\r|\n)/g
