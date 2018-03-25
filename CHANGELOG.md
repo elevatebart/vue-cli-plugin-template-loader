@@ -1,3 +1,15 @@
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/elevatebart/vue-cli-plugin-template-loader/compare/v0.3.2...v0.4.0) (2018-03-25)
+
+
+### Bug Fixes
+
+* **readme:** propose the use of add ([884dc7e](https://github.com/elevatebart/vue-cli-plugin-template-loader/commit/884dc7e))
+* **test:** improve invoke unit tests ([c083563](https://github.com/elevatebart/vue-cli-plugin-template-loader/commit/c083563))
+* **tsconfig:** give back formatting to tsconfig ([0ab4bdc](https://github.com/elevatebart/vue-cli-plugin-template-loader/commit/0ab4bdc))
+
+
+
 <a name="0.3.2"></a>
 ## [0.3.2](https://github.com/elevatebart/vue-cli-plugin-template-loader/compare/v0.3.1...v0.3.2) (2018-03-22)
 
