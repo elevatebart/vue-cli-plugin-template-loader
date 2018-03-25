@@ -9,7 +9,8 @@ async function createAndInstall (name, options) {
     name,
     {
       plugins: {
-        '@vue/cli-plugin-typescript': options
+        '@vue/cli-plugin-typescript': options,
+        '@vue/cli-plugin-unit-mocha': {}
       }
     },
     cwd
@@ -21,13 +22,25 @@ async function createAndInstall (name, options) {
   return project
 }
 
-xtest('invoke check tsconfig', async () => {
-  const project = await createAndInstall(`invoke`, {})
-  await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
-  expect(JSON.parse(await project.read('tsconfig.json')).include).toBeUndefined()
+describe('invoke', () => {
+  test('tsconfig should have no types', async () => {
+    const project = await createAndInstall(`invoke-tsconfig`, {})
+    await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
+    expect(JSON.parse(await project.read('tsconfig.json')).include).toBeUndefined()
+  })
+
+  xtest('HelloWorld.vue should become HelloWorld/index.ts', async () => {
+    const project = await createAndInstall(`invoke-vuefile`, {})
+    expect(project.has('src/components/HelloWorld.vue')).toBe(true)
+    await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
+    expect(project.has('src/components/HelloWorld.vue')).toBe(false)
+    expect(project.has('src/components/HelloWorld/index.ts')).toBe(true)
+  })
 })
 
-test('invoke with classComponent', async () => {
-  const project = await createAndInstall(`invoke-classComponent`, { classComponent: true })
-  await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
+describe('invoke with classComponent', () => {
+  test('invoke with classComponent', async () => {
+    const project = await createAndInstall(`invoke-classComponent`, { classComponent: true })
+    await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
+  })
 })

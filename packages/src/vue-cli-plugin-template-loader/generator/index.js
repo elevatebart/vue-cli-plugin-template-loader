@@ -5,6 +5,7 @@ module.exports = api => {
   // index.ts
   // style.css
   // template.html
+
   const vueRE = /\.vue$/
   api.postProcessFiles(files => {
     let classComponent
@@ -25,7 +26,7 @@ module.exports = api => {
         // Indeed, we change their relative path
         const template = parts.template.replace(/'\.\/assets\//, "'../assets/")
         files[componentPath + '/template.' + parts.templateExt] = template
-        delete files[file]
+        files[file] = ''
       }
     }
   })
