@@ -13,7 +13,7 @@ A plugin for @vue/cli to use [vue-template-loader](https://github.com/ktsn/vue-t
 
 ```bash
 npm install --global @vue/cli
-vue create my-vue-app
+vue create my-vue-app --default
 cd my-vue-app
-vue add vue-cli-plugin-template-loader
+vue add template-loader
 ```
