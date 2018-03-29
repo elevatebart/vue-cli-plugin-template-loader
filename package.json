@@ -1,6 +1,6 @@
 {
   "private": true,
-  "workspaces": ["packages/src/*"],
+  "workspaces": ["packages/*"],
   "scripts": {
     "test": "node scripts/test.js",
     "pretest": "yarn clean",
