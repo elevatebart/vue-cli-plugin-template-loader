@@ -5,10 +5,7 @@
     "test": "node scripts/test.js",
     "pretest": "yarn clean",
     "lint": "eslint --fix packages/**/*.js packages/**/bin/*",
-    "clean": "rimraf test/*",
-    "sync": "node scripts/syncDeps.js",
-    "boot": "node scripts/bootstrap.js",
-    "release": "yarn clean && node scripts/release.js"
+    "clean": "rimraf test/*"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
