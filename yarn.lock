@@ -8461,7 +8461,7 @@ vue-template-loader@^0.3.0:
     vue-hot-reload-api "^2.0.11"
     vue-template-es2015-compiler "^1.5.1"
 
-vue@^2.5.13, vue@^2.5.16:
+vue@^2.5.16:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 

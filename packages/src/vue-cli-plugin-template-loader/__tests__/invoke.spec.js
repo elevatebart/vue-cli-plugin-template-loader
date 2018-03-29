@@ -2,7 +2,7 @@ jest.setTimeout(20000)
 
 const create = require('@vue/cli-test-utils/createTestProject')
 const path = require('path')
-const cwd = path.resolve(__dirname, '../../../test')
+const cwd = path.resolve(__dirname, '../../../../test')
 
 async function createAndInstall (name, options) {
   const project = await create(

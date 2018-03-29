@@ -18,7 +18,7 @@ lib-cov
 coverage
 
 # jest test outputs
-packages/test/*
+test/*
 
 # nyc test coverage
 .nyc_output

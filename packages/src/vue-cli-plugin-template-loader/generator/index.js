@@ -26,7 +26,7 @@ module.exports = api => {
         // Indeed, we change their relative path
         const template = parts.template.replace(/'\.\/assets\//, "'../assets/")
         files[componentPath + '/template.' + parts.templateExt] = template
-        files[file] = ''
+        delete files[file]
       }
     }
   })
