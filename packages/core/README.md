@@ -1,8 +1,10 @@
 # vue-cli-plugin-template-loader
 
-A plugin for @vue/cli to use [vue-template-loader](https://github.com/ktsn/vue-template-loader) in vue-cli to separate concerns in the vue-cli
+A plugin for @vue/cli 3.0 to setup a vue scaffolding using [vue-template-loader](https://github.com/ktsn/vue-template-loader).
 
 ## With this plugin
+
+When one uses this plugin in combination with TypeScript,
 
 1.  Type safety is kept accross files
 2.  When writing tests, autocompletion with most editors work
