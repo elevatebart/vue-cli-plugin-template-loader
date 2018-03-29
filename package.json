@@ -2,7 +2,7 @@
   "private": true,
   "workspaces": ["packages/*"],
   "scripts": {
-    "test": "node scripts/test.js",
+    "test": "jest --runInBand",
     "pretest": "yarn clean",
     "lint": "eslint --fix packages/**/*.js packages/**/bin/*",
     "clean": "rimraf test/*"
@@ -12,7 +12,7 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "setupFiles": ["<rootDir>/scripts/testSetup.js"],
+    "setupFiles": ["<rootDir>/testSetup.js"],
     "testPathIgnorePatterns": ["/template/", "/test/", "/temp/", "/scripts/", ".*.helper.js"]
   },
   "lint-staged": {
