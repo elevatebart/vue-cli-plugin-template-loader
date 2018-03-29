@@ -1,15 +1,21 @@
 {
   "name": "vue-cli-plugin-template-loader",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "vue-template-loader plugin for @vue/cli 3.0",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elevatebart/vue-cli-plugin-template-loader.git"
   },
-  "homepage":
-    "https://github.com/elevatebart/vue-cli-plugin-template-loader/tree/master/packages/src/vue-cli-plugin-template-loader",
-  "keywords": ["vue", "cli", "template", "loader", "separation of concerns", "sfc"],
+  "homepage": "https://github.com/elevatebart/vue-cli-plugin-template-loader/tree/master/packages/src/vue-cli-plugin-template-loader",
+  "keywords": [
+    "vue",
+    "cli",
+    "template",
+    "loader",
+    "separation of concerns",
+    "sfc"
+  ],
   "author": "Bart Ledoux",
   "license": "MIT",
   "bugs": {
