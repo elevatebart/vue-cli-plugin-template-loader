@@ -4,11 +4,11 @@
 
 A plugin to run the vue-template-loader from @ktsn in the vue-cli
 
-## use plugin
+## Use Plugin
 
 [documentation](https://github.com/elevatebart/vue-cli-plugin-template-loader/tree/master/packages/vue-cli-plugin-template-loader#readme)
 
-## install for contrib
+## Install for Contribution
 
 This project uses a monorepo setup that requires using [Yarn](https://yarnpkg.com) because it relies on [Yarn workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/).
 
@@ -17,7 +17,7 @@ git clone https://github.com/elevatebart/vue-cli-plugin-template-loader.git
 yarn
 ```
 
-## test the plugin
+## Run Unit Tests
 
 ```bash
 yarn test
