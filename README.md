@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/elevatebart/vue-cli-plugin-template-loader.svg?branch=master)](https://travis-ci.org/elevatebart/vue-cli-plugin-template-loader)[![npm package](https://img.shields.io/npm/v/vue-cli-plugin-template-loader.svg)](https://www.npmjs.com/package/vue-cli-plugin-template-loader)
+[![Build Status](https://travis-ci.org/elevatebart/vue-cli-plugin-template-loader.svg?branch=master)](https://travis-ci.org/elevatebart/vue-cli-plugin-template-loader) [![npm package](https://img.shields.io/npm/v/vue-cli-plugin-template-loader.svg)](https://www.npmjs.com/package/vue-cli-plugin-template-loader)
 
 # vue-cli-plugin-template-loader
 
