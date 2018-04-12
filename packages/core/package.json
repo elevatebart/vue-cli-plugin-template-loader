@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-template-loader",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "description": "vue-template-loader plugin for @vue/cli 3.0",
   "main": "index.js",
   "repository": {
@@ -25,6 +25,7 @@
     "access": "public"
   },
   "dependencies": {
-    "vue-template-loader": "^0.3.0"
+    "vue-template-loader": "^0.3.0",
+    "rimraf": "^2.6.2"
   }
 }

@@ -4,7 +4,7 @@ const create = require('@vue/cli-test-utils/createTestProject')
 const path = require('path')
 const cwd = path.resolve(__dirname, '../../../test')
 
-async function createAndInstall(name, options) {
+async function createAndInstall (name, options) {
   const project = await create(
     name,
     {
@@ -29,7 +29,7 @@ describe('invoke', () => {
     expect(JSON.parse(await project.read('tsconfig.json')).include).toBeUndefined()
   })
 
-  xtest('HelloWorld.vue should become HelloWorld/index.ts', async () => {
+  test('HelloWorld.vue should become HelloWorld/index.ts', async () => {
     const project = await createAndInstall(`invoke-vuefile`, {})
     expect(project.has('src/components/HelloWorld.vue')).toBe(true)
     await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)

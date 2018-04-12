@@ -1,4 +1,6 @@
 const extractParts = require('../lib/sfcSplitter')
+const path = require('path')
+const rimraf = require('rimraf')
 
 module.exports = api => {
   // transform .vue files into a folder with the same name containing
@@ -51,6 +53,9 @@ module.exports = api => {
       }
     }
   })
-
+  const pathSource = path.resolve('./src')
+  rimraf.sync(pathSource)
+  const testsSource = path.resolve('./tests/unit')
+  rimraf.sync(testsSource)
   api.render('./template')
 }
