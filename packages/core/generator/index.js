@@ -13,6 +13,7 @@ module.exports = api => {
     let classComponent
     if (files['tsconfig.json']) {
       const tsconfig = JSON.parse(files['tsconfig.json'])
+
       // if it has experimentalDecorators it probably has classComponent as well
       classComponent = tsconfig.compilerOptions.experimentalDecorators
       delete tsconfig.include

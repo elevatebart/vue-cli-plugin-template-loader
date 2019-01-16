@@ -40,7 +40,7 @@ describe('invoke', () => {
 
 describe('invoke with classComponent', () => {
   test('invoke with classComponent', async () => {
-    const project = await createAndInstall(`invoke-classComponent`, { classComponent: true })
+    const project = await createAndInstall(`invoke-class-component`, { classComponent: true })
     await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
   })
 })

@@ -16,7 +16,7 @@ test('mocha', async () => {
     },
     cwd
   )
-  await project.run(`vue-cli-service test`)
+  await project.run(`vue-cli-service test:unit`)
 })
 
 test('mocha with class-component', async () => {
@@ -31,7 +31,7 @@ test('mocha with class-component', async () => {
     },
     cwd
   )
-  await project.run(`vue-cli-service test`)
+  await project.run(`vue-cli-service test:unit`)
 })
 
 // for now not compatible with jest
@@ -47,5 +47,5 @@ xtest('jest', async () => {
     },
     cwd
   )
-  await project.run(`vue-cli-service test`)
+  await project.run(`vue-cli-service test:unit`)
 })
