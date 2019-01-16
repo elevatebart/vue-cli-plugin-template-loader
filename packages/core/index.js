@@ -17,7 +17,14 @@ module.exports = (api, options) => {
         }
       })
 
-    const cssRule = config.module.rule('css')
+    const cssRule = config.module.rule('css').oneOf('normal')
     cssRule.enforce('post')
+    cssRule.uses.clear()
+    cssRule
+      .use('style-loader')
+      .loader('style-loader')
+      .end()
+      .use('css-loader')
+      .loader('css-loader')
   })
 }
