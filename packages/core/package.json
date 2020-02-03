@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-template-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vue-template-loader plugin for @vue/cli 3.0",
   "main": "index.js",
   "repository": {
