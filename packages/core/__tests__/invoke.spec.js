@@ -4,7 +4,7 @@ const create = require('@vue/cli-test-utils/createTestProject')
 const path = require('path')
 const cwd = path.resolve(__dirname, '../../../test')
 
-async function createAndInstall (name, options) {
+async function createAndInstall(name, options = {}) {
   const project = await create(
     name,
     {
@@ -13,7 +13,8 @@ async function createAndInstall (name, options) {
         '@vue/cli-plugin-unit-mocha': {}
       }
     },
-    cwd
+    cwd,
+    false
   )
   // mock install
   const pkg = JSON.parse(await project.read('package.json'))
@@ -23,14 +24,15 @@ async function createAndInstall (name, options) {
 }
 
 describe('invoke', () => {
-  test('tsconfig should have no types', async () => {
-    const project = await createAndInstall(`invoke-tsconfig`, {})
+  test('tsconfig should have no types', async done => {
+    const project = await createAndInstall(`invoke-tsconfig`)
     await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
     expect(JSON.parse(await project.read('tsconfig.json')).include).toBeUndefined()
+    done()
   })
 
   test('HelloWorld.vue should become HelloWorld/index.ts', async () => {
-    const project = await createAndInstall(`invoke-vuefile`, {})
+    const project = await createAndInstall(`invoke-vuefile`)
     expect(project.has('src/components/HelloWorld.vue')).toBe(true)
     await project.run(`${require.resolve('@vue/cli/bin/vue')} invoke vue-cli-plugin-template-loader`)
     expect(project.has('src/components/HelloWorld.vue')).toBe(false)
