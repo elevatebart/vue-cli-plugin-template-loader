@@ -4,6 +4,7 @@
     "jest": true
   },
   "rules": {
+    "space-before-function-paren": "off",
     "indent": ["error", 2, { "MemberExpression": "off" }],
     "vue-libs/no-async-functions": 2
   }
